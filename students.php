@@ -1,5 +1,17 @@
 <?php
 
+function sortArray(&$arr, $fieldName) {
+    for ($i = 0; $i < count($arr); $i++) {
+        for ($j = 0; $j < count($arr) - $i - 1; $j++) {
+            if ($arr[$j][$fieldName] > $arr[$j + 1][$fieldName]) {
+                $a = $arr[$j];
+                $arr[$j] = $arr[$j + 1];
+                $arr[$j + 1] = $a;
+            }
+        }
+    }
+}
+
 $Ilya = array(
     "age" => 13,
     "birthDay" => "07.06.2005",
@@ -47,6 +59,9 @@ $Viktor = array(
     )
 );
 
+sortArray($Viktor["students"], "experience");
+
 foreach ($Viktor["students"] as $student) {
-    echo $student["name"]." ".$student["age"]."\n";
+    echo $student["name"]." ".$student["experience"]."\n";
 }
+
