@@ -5,6 +5,7 @@ interface CarInterface {
     public function closeDoor();
     public function setSpeed($number);
     public function run();
+    public function carBreak();
 }
 
 Где функции:
